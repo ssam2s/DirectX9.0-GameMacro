@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.55.0" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.55.0.2371" />
+    <PackageReference Include="ImageFinder" Version="1.0.2" />
+    <PackageReference Include="InputSimulator" Version="1.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="OpenCvSharp3-AnyCPU" Version="4.0.0.20181129" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.1.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="98.0.4758.8000" />
+    <PackageReference Include="WebDriver.ChromeDriver.win32" Version="98.0.4758.48" />
+  </ItemGroup>
+
+</Project>

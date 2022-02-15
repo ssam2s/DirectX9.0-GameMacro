@@ -1,0 +1,103 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\Macro.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\Macro.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\Macro.csproj",
+        "projectName": "Macro",
+        "projectPath": "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\Macro.csproj",
+        "packagesPath": "C:\\Users\\ssam2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ssam2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.55.0, )"
+            },
+            "Google.Apis.Sheets.v4": {
+              "target": "Package",
+              "version": "[1.55.0.2371, )"
+            },
+            "ImageFinder": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "InputSimulator": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "OpenCvSharp3-AnyCPU": {
+              "target": "Package",
+              "version": "[4.0.0.20181129, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[98.0.4758.8000, )"
+            },
+            "WebDriver.ChromeDriver.win32": {
+              "target": "Package",
+              "version": "[98.0.4758.48, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

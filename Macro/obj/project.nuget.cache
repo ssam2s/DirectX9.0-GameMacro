@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "DikQ3WyrKqaRxkPxDWOF7y55lzHsybNDe6Gs9A4PfFKVKglEJ0imwnS4bjd8r+aaMCNQoxMUFLSQCLuYE1Xb8A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ssam2\\Source\\Repos\\Macro\\Macro\\Macro.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ssam2\\.nuget\\packages\\google.apis\\1.55.0\\google.apis.1.55.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\google.apis.auth\\1.55.0\\google.apis.auth.1.55.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\google.apis.core\\1.55.0\\google.apis.core.1.55.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\google.apis.sheets.v4\\1.55.0.2371\\google.apis.sheets.v4.1.55.0.2371.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\imagefinder\\1.0.2\\imagefinder.1.0.2.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\opencvsharp3-anycpu\\4.0.0.20181129\\opencvsharp3-anycpu.4.0.0.20181129.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\selenium.webdriver\\4.1.0\\selenium.webdriver.4.1.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\selenium.webdriver.chromedriver\\98.0.4758.8000\\selenium.webdriver.chromedriver.98.0.4758.8000.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\system.drawing.common\\4.5.0\\system.drawing.common.4.5.0.nupkg.sha512",
+    "C:\\Users\\ssam2\\.nuget\\packages\\webdriver.chromedriver.win32\\98.0.4758.48\\webdriver.chromedriver.win32.98.0.4758.48.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 'net6.0-windows7.0' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'ImageFinder 1.0.2'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "ImageFinder",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 'net6.0-windows7.0' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'InputSimulator 1.0.4'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "InputSimulator",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
+}
