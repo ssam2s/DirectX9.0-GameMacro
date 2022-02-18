@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-
 public class Hook
 {
-
-
     //윈도우 후킹
     const int WH_KEYBOARD_LL = 13;
     //이벤트용 메세지 Key Down
@@ -13,29 +10,22 @@ public class Hook
     //이벤트용 메세지 Key Up
     const int WM_KEYUP = 0x101;
 
-
     [DllImport("user32.dll")]
     static extern bool keybd_event(uint bVk, uint bScan, uint dwFlags, int dwExtraInfo);
-
 
     [DllImport("user32.dll")]
     static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr hInstance, uint threadId);
 
-
     [DllImport("user32.dll")]
     static extern bool UnhookWindowsHookEx(IntPtr hInstance);
-
 
     [DllImport("user32.dll")]
     static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, int wParam, IntPtr lParam);
 
-
     [DllImport("kernel32.dll")]
     static extern IntPtr LoadLibrary(string lpFileName);
 
-
     private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
-
 
     #region VirtualKey
     public enum VKeys : int
@@ -145,32 +135,23 @@ public class Hook
     }
     #endregion
 
-
     private LowLevelKeyboardProc _proc = hookProc;
-
 
     private static IntPtr hhook = IntPtr.Zero;
 
-
     public void SetHook()
     {
-
-
         IntPtr hInstance = LoadLibrary("User32");
         hhook = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, hInstance, 0);
     }
-
 
     public static void UnHook()
     {
         UnhookWindowsHookEx(hhook);
     }
 
-
     public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
     {
-
-
         if (code >= 0 && wParam == (IntPtr)WM_KEYDOWN)
         {
             //방향키만 후킹하지 않음.
@@ -182,14 +163,10 @@ public class Hook
                 case VKeys.VK_LEFT:
                 case VKeys.VK_RIGHT:
 
-
                     return CallNextHookEx(hhook, code, (int)wParam, lParam);
             }
-
-
             //첫번째 인자에 후킹후에 강제로 발생시킬 키값을 넣는다.                
             keybd_event((int)VKeys.VK_A, (uint)key, 0x00, 0);
-
 
             return (IntPtr)1;
         }

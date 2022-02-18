@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Google.Apis.Auth.OAuth2;
@@ -45,6 +46,7 @@ namespace Macro
         public Form1()
         {
             InitializeComponent();
+            timeStamp("KMacro Version 1.0");
         }
 
         public void WebdriverInput(string text, IWebDriver driver)
@@ -102,7 +104,7 @@ namespace Macro
             return null;
         }
 
-        public void Web_Start()
+        public async void Web_Start()
         {
             // ChromeDriver Settings
             ChromeDriverService chromeDriverService = ChromeDriverService.CreateDefaultService();
@@ -118,6 +120,8 @@ namespace Macro
             // Get Member's ID Type from Spread Sheet
             string idType = "넥슨";
 
+            timeStamp("회원 아이디 구분 ( " + idType + " )");
+
             switch (idType)
             {
                 #region NEXON LOGIN
@@ -125,6 +129,7 @@ namespace Macro
                     // Connect to Login Page
                     try
                     {
+                        timeStamp("로그인 페이지 접속");
                         chromeDriver.Navigate().GoToUrl(login_NEXON);
                     }
                     catch
@@ -132,7 +137,8 @@ namespace Macro
                         MessageBox.Show("Invalid URL");
                     }
 
-                    // Get Web Components
+                    timeStamp("회원 아이디 기입");
+                    // Get Web Components       
                     var Field_ID_NEXON = chromeDriver.FindElement(By.Id("txtNexonID"));
                     var Field_PW_NEXON = chromeDriver.FindElement(By.Id("txtPWD"));
                     var Button_LOGIN_NEXON = chromeDriver.FindElement(By.ClassName("button01"));
@@ -145,6 +151,7 @@ namespace Macro
                     // Login Action
                     try
                     {
+                        timeStamp("로그인 시도");
                         Button_LOGIN_NEXON.Click();
                     }
                     catch
@@ -165,7 +172,7 @@ namespace Macro
                     chromeDriver.FindElement(By.Id("id")).Click();
                     WebdriverInput("ssam2s", chromeDriver);
 
-                    Thread.Sleep(1000);
+                    await Task.Delay(1000);
 
                     chromeDriver.FindElement(By.Id("pw")).Click();
                     WebdriverInput("wnsgur11257071", chromeDriver);
@@ -175,7 +182,7 @@ namespace Macro
                     // Login Action
                     Button_LOGIN_NAVER.Click();
 
-                    Thread.Sleep(500);
+                    await Task.Delay(1000);
 
                     chromeDriver.FindElement(By.ClassName("btn_unit_on")).Click();
                     break;
@@ -229,22 +236,15 @@ namespace Macro
                     #endregion
             }
 
-            Thread.Sleep(500);
+            await Task.Delay(5000);
             var Popup_Close = chromeDriver.FindElements(By.ClassName("btn_close"));
-            int Popup_Count = 2;
 
-            for (int i = 0; i < Popup_Count; i++)
+            for (int i = 0; i < 2; i++)
             {
-                try
-                {
-                    Popup_Close[i].Click();
-                }
-                catch
-                {
-                    MessageBox.Show("Popup Count is inCorrect");
-                }
+                Popup_Close[i].Click();
             }
 
+            timeStamp("게임 시작");
             var Game_Start = chromeDriver.FindElement(By.ClassName("btn_gamestart_obt"));
             Game_Start.Click();
         }
@@ -275,65 +275,85 @@ namespace Macro
             return false;
         }
 
-        private void Start_Click(object sender, EventArgs e)
+        public void timeStamp(string param)
         {
-            InputSimulator sim = new InputSimulator();
+            string nowTime = DateTime.Now.ToString("HH:mm:ss");
+            systemMsg.AppendText(nowTime + " :: " + param + "\n");
+            systemMsg.ScrollToCaret();
+        }
 
-            while (true)
-            {
-                Thread.Sleep(500);
-                sim.Keyboard.KeyPress(VirtualKeyCode.VK_S);
-            }
-            //keybd_event(VK_S, 0, 0, 0);
-            //keybd_event(VK_S, 0, 0x02, 0);
-            /*
+        private async void Start_Click(object sender, EventArgs e)
+        {
+            
             bool flag_OnGame = false;
             bool flag_GongjiX = false;
             bool flag_inclub = false;
             bool flag_inclub_proceed = false;
             bool flag_MGRMode = false;
-
+            /*
+            timeStamp("프로그램 시작");
             Web_Start();
-            
+
+            timeStamp("게임 감지 중");
             while (true)
             {
-                systemMsg.Text = "게임 감지 중";
-                
                 if (FindWindow(null, "FIFA ONLINE 4") != IntPtr.Zero)
                 {
-                    systemMsg.Text = "게임 감지 완료";
+                    timeStamp("게임 감지 성공");
                     flag_OnGame = true;
                     break;
                 }
-                Thread.Sleep(2000);
+                await Task.Delay(1000);
             }
             
             while (!flag_GongjiX)
             {
-                flag_GongjiX = ImageSearch(@"img\GongjiX.png");
-                Thread.Sleep(2000);
-            }
+                if (ImageSearch(@"img\GongjiX.png"))
+                {
+                    flag_GongjiX = true;
+                    timeStamp("매크로 동작 - 공지 끄기");
+                    break;
+                }
+                await Task.Delay(1000);
+            }*/
 
             while (!flag_inclub)
             {
-                flag_inclub = ImageSearch(@"img\Proceed2.png");
-                Thread.Sleep(2000);
+                if (ImageSearch(@"img\Proceed2.png"))
+                {
+                    flag_inclub = true;
+                    timeStamp("매크로 동작 - 일정 진행 클릭");
+                    break;
+                }
+                await Task.Delay(1000);
             }
 
             while (!flag_inclub_proceed)
             {
-                flag_inclub_proceed = ImageSearch(@"img\Proceed.png");
-                Thread.Sleep(2000);
+                if (ImageSearch(@"img\Proceed.png"))
+                {
+                    flag_inclub_proceed = true;
+                    timeStamp("매크로 동작 - 진행 버튼 클릭");
+                    break;
+                }
+                await Task.Delay(1000);
             }
 
             while (!flag_MGRMode)
             {
-                flag_MGRMode = ImageSearch(@"img\MGRMode.png");
-                Thread.Sleep(2000);
-            }*/
+                if (ImageSearch(@"img\MGRMode.png"))
+                {
+                    flag_MGRMode = true;
+                    timeStamp("매크로 동작 - 감독 모드 클릭");
+                    break;
+                }
+                await Task.Delay(1000);
+            }
+        }
 
-
-            /**/
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

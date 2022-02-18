@@ -47,8 +47,8 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.systemMsg = new System.Windows.Forms.RichTextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.systemMsg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -152,6 +152,7 @@
             this.Exit.TabIndex = 2;
             this.Exit.Text = "종료";
             this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // groupBox2
             // 
@@ -249,33 +250,34 @@
             this.groupBox3.Controls.Add(this.systemMsg);
             this.groupBox3.Location = new System.Drawing.Point(12, 312);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(398, 102);
+            this.groupBox3.Size = new System.Drawing.Size(398, 178);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "시스템 메시지";
             // 
+            // systemMsg
+            // 
+            this.systemMsg.EnableAutoDragDrop = true;
+            this.systemMsg.Location = new System.Drawing.Point(6, 22);
+            this.systemMsg.Name = "systemMsg";
+            this.systemMsg.ReadOnly = true;
+            this.systemMsg.Size = new System.Drawing.Size(386, 150);
+            this.systemMsg.TabIndex = 1;
+            this.systemMsg.Text = "";
+            // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 420);
+            this.progressBar1.Location = new System.Drawing.Point(12, 496);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(397, 24);
             this.progressBar1.TabIndex = 5;
             this.progressBar1.Value = 40;
             // 
-            // systemMsg
-            // 
-            this.systemMsg.AutoSize = true;
-            this.systemMsg.Location = new System.Drawing.Point(11, 20);
-            this.systemMsg.Name = "systemMsg";
-            this.systemMsg.Size = new System.Drawing.Size(12, 15);
-            this.systemMsg.TabIndex = 0;
-            this.systemMsg.Text = "-";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 456);
+            this.ClientSize = new System.Drawing.Size(421, 532);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -291,7 +293,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -318,6 +319,6 @@
         private TextBox textBox1;
         private Label label1;
         private ProgressBar progressBar1;
-        private Label systemMsg;
+        private RichTextBox systemMsg;
     }
 }
