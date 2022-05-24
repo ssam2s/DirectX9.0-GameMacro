@@ -81,7 +81,7 @@ namespace Macro
                 ApplicationName = ApplicationName,
             });
 
-            String spreadsheetId = "1Db5c_xPZicJyMXYjhA7vRgmqtGcgb4E1K5ZhRhHy9Cw";
+            String spreadsheetId = "";
             String range = "test!A1:B9";
             SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
 
@@ -118,18 +118,18 @@ namespace Macro
             string login_FACEBOOK = "https://www.facebook.com/login.php?skip_api_login=1&api_key=198868903993596&kid_directed_site=0&app_id=198868903993596&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fscope%3Demail%26client_id%3D198868903993596%26redirect_uri%3Dhttps%253A%252F%252Flogin.nexon.com%252Flogin%252Ffacebook%252FAccessToken%26state%3DcaAIKw_x88VWlVkeGEILxKFKa6FVZA6k_DZ1WVrjLMELfrsQGVyPuKxLET9I0tQdJ8TQ3vN4_x4jSjR04GYPtBMHeezH3J3_Xjtl1ANHyNaskDCygmxYg6XxinbYks7BLqWjOT3Q4KV9dCMTOT0VPXiAuuqP9Rx%257E%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D3b7275fe-6325-46c5-9781-d18ce8eda43c%26tp%3Dunspecified&cancel_url=https%3A%2F%2Flogin.nexon.com%2Flogin%2Ffacebook%2FAccessToken%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DcaAIKw_x88VWlVkeGEILxKFKa6FVZA6k_DZ1WVrjLMELfrsQGVyPuKxLET9I0tQdJ8TQ3vN4_x4jSjR04GYPtBMHeezH3J3_Xjtl1ANHyNaskDCygmxYg6XxinbYks7BLqWjOT3Q4KV9dCMTOT0VPXiAuuqP9Rx%257E%23_%3D_&display=page&locale=ko_KR&pl_dbl=0";
 
             // Get Member's ID Type from Spread Sheet
-            string idType = "≥ÿΩº";
+            string idType = "ÎÑ•Ïä®";
 
-            timeStamp("»∏ø¯ æ∆¿Ãµ ±∏∫– ( " + idType + " )");
+            timeStamp("ÌöåÏõê ÏïÑÏù¥Îîî Íµ¨Î∂Ñ ( " + idType + " )");
 
             switch (idType)
             {
                 #region NEXON LOGIN
-                case "≥ÿΩº":
+                case "ÎÑ•Ïä®":
                     // Connect to Login Page
                     try
                     {
-                        timeStamp("∑Œ±◊¿Œ ∆‰¿Ã¡ˆ ¡¢º”");
+                        timeStamp("Î°úÍ∑∏Ïù∏ ÌéòÏù¥ÏßÄ Ï†ëÏÜç");
                         chromeDriver.Navigate().GoToUrl(login_NEXON);
                     }
                     catch
@@ -137,7 +137,7 @@ namespace Macro
                         MessageBox.Show("Invalid URL");
                     }
 
-                    timeStamp("»∏ø¯ æ∆¿Ãµ ±‚¿‘");
+                    timeStamp("ÌöåÏõê ÏïÑÏù¥Îîî Í∏∞ÏûÖ");
                     // Get Web Components       
                     var Field_ID_NEXON = chromeDriver.FindElement(By.Id("txtNexonID"));
                     var Field_PW_NEXON = chromeDriver.FindElement(By.Id("txtPWD"));
@@ -151,7 +151,7 @@ namespace Macro
                     // Login Action
                     try
                     {
-                        timeStamp("∑Œ±◊¿Œ Ω√µµ");
+                        timeStamp("Î°úÍ∑∏Ïù∏ ÏãúÎèÑ");
                         Button_LOGIN_NEXON.Click();
                     }
                     catch
@@ -163,19 +163,19 @@ namespace Macro
                 #endregion
 
                 #region NAVER LOGIN
-                case "≥◊¿Ãπˆ":
+                case "ÎÑ§Ïù¥Î≤Ñ":
                     // Connect to Login Page
                     chromeDriver.Navigate().GoToUrl(login_NAVER);
 
                     // Get Web Components
                     // Member Data from Spread Sheet
                     chromeDriver.FindElement(By.Id("id")).Click();
-                    WebdriverInput("ssam2s", chromeDriver);
+                    WebdriverInput("", chromeDriver);
 
                     await Task.Delay(1000);
 
                     chromeDriver.FindElement(By.Id("pw")).Click();
-                    WebdriverInput("wnsgur11257071", chromeDriver);
+                    WebdriverInput("", chromeDriver);
 
                     var Button_LOGIN_NAVER = chromeDriver.FindElement(By.ClassName("btn_login"));
 
@@ -190,7 +190,7 @@ namespace Macro
 
                 // Web Components are hashed (Auto-Login is Impossible)
                 #region GOOGLE LOGIN
-                case "±∏±€":
+                case "Íµ¨Í∏Ä":
                     // Connect to Login Page
                     chromeDriver.Navigate().GoToUrl(login_GOOGLE);
 
@@ -200,8 +200,8 @@ namespace Macro
                     var Button_LOGIN_GOOGLE = chromeDriver.FindElement(By.ClassName("button01"));
 
                     // Member Data from Spread Sheet
-                    Field_ID_GOOGLE.SendKeys("ssam2s@naver.com");
-                    Field_PW_GOOGLE.SendKeys("Wnsgur122!");
+                    Field_ID_GOOGLE.SendKeys("");
+                    Field_PW_GOOGLE.SendKeys("");
 
                     // Login Action
                     Button_LOGIN_GOOGLE.Click();
@@ -210,7 +210,7 @@ namespace Macro
 
                 // Agree Button is existed (Auto-Login is Difficult)
                 #region FACEBOOK LOGIN
-                case "∆‰¿ÃΩ∫∫œ":
+                case "ÌéòÏù¥Ïä§Î∂Å":
                     // Connect to Login Page
                     chromeDriver.Navigate().GoToUrl(login_FACEBOOK);
 
@@ -220,8 +220,8 @@ namespace Macro
                     var Button_LOGIN_FACEBOOK = chromeDriver.FindElement(By.Id("loginbutton"));
 
                     // Member Data from Spread Sheet
-                    Field_ID_FACEBOOK.SendKeys("01098025053");
-                    Field_PW_FACEBOOK.SendKeys("Wnsgur122!");
+                    Field_ID_FACEBOOK.SendKeys("");
+                    Field_PW_FACEBOOK.SendKeys("");
 
                     // Login Action
                     Button_LOGIN_FACEBOOK.Click();
@@ -244,7 +244,7 @@ namespace Macro
                 Popup_Close[i].Click();
             }
 
-            timeStamp("∞‘¿” Ω√¿€");
+            timeStamp("Í≤åÏûÑ ÏãúÏûë");
             var Game_Start = chromeDriver.FindElement(By.ClassName("btn_gamestart_obt"));
             Game_Start.Click();
         }
@@ -291,15 +291,15 @@ namespace Macro
             bool flag_inclub_proceed = false;
             bool flag_MGRMode = false;
             /*
-            timeStamp("«¡∑Œ±◊∑• Ω√¿€");
+            timeStamp("ÌîÑÎ°úÍ∑∏Îû® ÏãúÏûë");
             Web_Start();
 
-            timeStamp("∞‘¿” ∞®¡ˆ ¡ﬂ");
+            timeStamp("Í≤åÏûÑ Í∞êÏßÄ Ï§ë");
             while (true)
             {
                 if (FindWindow(null, "FIFA ONLINE 4") != IntPtr.Zero)
                 {
-                    timeStamp("∞‘¿” ∞®¡ˆ º∫∞¯");
+                    timeStamp("Í≤åÏûÑ Í∞êÏßÄ ÏÑ±Í≥µ");
                     flag_OnGame = true;
                     break;
                 }
@@ -311,7 +311,7 @@ namespace Macro
                 if (ImageSearch(@"img\GongjiX.png"))
                 {
                     flag_GongjiX = true;
-                    timeStamp("∏≈≈©∑Œ µø¿€ - ∞¯¡ˆ ≤Ù±‚");
+                    timeStamp("Îß§ÌÅ¨Î°ú ÎèôÏûë - Í≥µÏßÄ ÎÅÑÍ∏∞");
                     break;
                 }
                 await Task.Delay(1000);
@@ -322,7 +322,7 @@ namespace Macro
                 if (ImageSearch(@"img\Proceed2.png"))
                 {
                     flag_inclub = true;
-                    timeStamp("∏≈≈©∑Œ µø¿€ - ¿œ¡§ ¡¯«‡ ≈¨∏Ø");
+                    timeStamp("Îß§ÌÅ¨Î°ú ÎèôÏûë - ÏùºÏ†ï ÏßÑÌñâ ÌÅ¥Î¶≠");
                     break;
                 }
                 await Task.Delay(1000);
@@ -333,7 +333,7 @@ namespace Macro
                 if (ImageSearch(@"img\Proceed.png"))
                 {
                     flag_inclub_proceed = true;
-                    timeStamp("∏≈≈©∑Œ µø¿€ - ¡¯«‡ πˆ∆∞ ≈¨∏Ø");
+                    timeStamp("Îß§ÌÅ¨Î°ú ÎèôÏûë - ÏßÑÌñâ Î≤ÑÌäº ÌÅ¥Î¶≠");
                     break;
                 }
                 await Task.Delay(1000);
@@ -344,7 +344,7 @@ namespace Macro
                 if (ImageSearch(@"img\MGRMode.png"))
                 {
                     flag_MGRMode = true;
-                    timeStamp("∏≈≈©∑Œ µø¿€ - ∞®µ∂ ∏µÂ ≈¨∏Ø");
+                    timeStamp("Îß§ÌÅ¨Î°ú ÎèôÏûë - Í∞êÎèÖ Î™®Îìú ÌÅ¥Î¶≠");
                     break;
                 }
                 await Task.Delay(1000);
